@@ -1,5 +1,5 @@
 ---
-title : "Tạo kết nối đến máy chủ EC2"
+title : "Kết quả"
 date: 2025-07-02 
 weight : 3 
 chapter : false

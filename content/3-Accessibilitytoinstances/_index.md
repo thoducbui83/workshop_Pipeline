@@ -1,5 +1,5 @@
 ---
-title: "Connect to EC2 via Session Manager"
+title: "result"
 date: 2025-07-02
 weight: 3
 chapter: false
