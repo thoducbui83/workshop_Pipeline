@@ -17,9 +17,9 @@ Sau khi bạn cấu hình SNS topic để gửi thông báo khi có file mới �
 
 🖼️ **Giao diện Gmail:**
 
-![SNS Gmail Notification](/images/Picture2.png)
+![SNS Gmail Notification](images/Picture2.png)
 
-![SNS Gmail Notification](/images/gmal.jpg)
+![SNS Gmail Notification](images/gmal.jpg)
 
 {{% notice note %}}
 Nếu bạn không nhận được email, hãy kiểm tra cả hộp thư **Promotions** và **Spam**. Đồng thời đảm bảo đã xác nhận đăng ký trong email "Subscription Confirmation".

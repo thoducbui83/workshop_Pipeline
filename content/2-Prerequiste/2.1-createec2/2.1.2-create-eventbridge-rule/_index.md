@@ -18,7 +18,7 @@ In this step, we will create an **Amazon EventBridge Rule** to detect when a new
 2. In the left sidebar, select **Rules**.
 3. Click **Create rule**.
 
-![EventBridge](/images/taoRuler.jpg)
+![EventBridge](images/taoRuler.jpg)
 
 ---
 
@@ -42,7 +42,7 @@ Click **Next**.
 
 Click **Next**.
 
-![Event Pattern](/images/ruler2.jpg)
+![Event Pattern](images/ruler2.jpg)
 
 ---
 
@@ -55,7 +55,7 @@ Click **Next**.
 
 Click **Next**.
 
-![Add Target](/images/ruler3.jpg)
+![Add Target](images/ruler3.jpg)
 
 ---
 
@@ -64,7 +64,7 @@ Click **Next**.
 1. Review your rule configuration.
 2. Click **Create rule** to finish.
 
-![Success](/images/ruler1.jpg)
+![Success](images/ruler1.jpg)
 
 ---
 

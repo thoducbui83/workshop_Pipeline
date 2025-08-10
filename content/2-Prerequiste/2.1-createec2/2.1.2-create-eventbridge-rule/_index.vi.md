@@ -18,7 +18,7 @@ Trong bước này, chúng ta sẽ tạo một **EventBridge Rule** để theo d
 2. Ở thanh điều hướng bên trái, chọn **Rules**.
 3. Nhấn nút **Create rule** để tạo mới.
 
-![EventBridge](/images/taoRuler.jpg)
+![EventBridge](images/taoRuler.jpg)
 
 ---
 
@@ -42,7 +42,7 @@ Nhấn **Next** để tiếp tục.
 
 Nhấn **Next**.
 
-![Event Pattern](/images/ruler2.jpg)
+![Event Pattern](images/ruler2.jpg)
 
 ---
 
@@ -55,7 +55,7 @@ Nhấn **Next**.
 
 Nhấn **Next**.
 
-![Add Target](/images/ruler3.jpg)
+![Add Target](images/ruler3.jpg)
 
 ---
 
@@ -64,7 +64,7 @@ Nhấn **Next**.
 1. Kiểm tra lại toàn bộ cấu hình của rule.
 2. Nhấn **Create rule** để hoàn tất.
 
-![Success](/images/ruler1.jpg)
+![Success](images/ruler1.jpg)
 
 ---
 

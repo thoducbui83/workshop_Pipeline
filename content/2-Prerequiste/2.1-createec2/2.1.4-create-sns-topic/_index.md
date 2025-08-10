@@ -27,7 +27,7 @@ In this step, we will **create an SNS Topic** which will be used by the Lambda f
 3. Leave all other settings default unless specified by your use case.
 4. Click **Create topic**.
 
-![SNS Topic](/images/sns1.jpg)
+![SNS Topic](images/sns1.jpg)
 
 ---
 

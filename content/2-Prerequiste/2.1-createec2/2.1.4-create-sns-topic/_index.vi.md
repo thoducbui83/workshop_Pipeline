@@ -27,7 +27,7 @@ Trong bước này, chúng ta sẽ **tạo một SNS Topic** để Lambda Functi
 3. Các tùy chọn còn lại có thể giữ nguyên mặc định (trừ khi bạn có yêu cầu riêng).
 4. Nhấn **Create topic** để hoàn tất.
 
-![SNS Topic](/images/sns1.jpg)
+![SNS Topic](images/sns1.jpg)
 
 ---
 

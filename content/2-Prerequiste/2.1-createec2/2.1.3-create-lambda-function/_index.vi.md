@@ -30,7 +30,7 @@ Trong bước này, chúng ta sẽ tạo một **Lambda function** nhằm xử l
 
 Nhấn **Create function**.
 
-![Lambda Create](/images/lamda1.jpg)
+![Lambda Create](images/lamda1.jpg)
 
 ---
 

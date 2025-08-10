@@ -14,12 +14,12 @@ After a file is uploaded to the S3 bucket, the event triggers a Lambda function 
 
 🖼️ **Example of log group in CloudWatch:**
 
-![CloudWatchLogGroup](/images/upload1.jpg)
+![CloudWatchLogGroup](images/upload1.jpg)
 
-![CloudWatchLogGroup](/images/uploadTC.jpg)
+![CloudWatchLogGroup](images/uploadTC.jpg)
 
 
-![CloudWatchLogGroup](/images/cloudwhat1.jpg)
+![CloudWatchLogGroup](images/cloudwhat1.jpg)
 
 - The log group is automatically created based on the Lambda function name:  
   `/aws/lambda/S3UploadEventHandler`

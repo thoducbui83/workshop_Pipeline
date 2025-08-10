@@ -33,7 +33,7 @@ In this step, we will create an **AWS Lambda function** that is triggered by S3 
 
 Click **Create function**.
 
-![Lambda Create](/images/lamda1.jpg)
+![Lambda Create](images/lamda1.jpg)
 
 ---
 

@@ -17,7 +17,7 @@ Trong bước này, chúng ta sẽ tạo một **Amazon S3 bucket** dùng để 
 1. Truy cập [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home).
 2. Click nút **Create bucket**.
 
-![S3](/images/taoS3.jpg)
+![S3](images/taoS3.jpg)
 
 ---
 
@@ -28,7 +28,7 @@ Trong bước này, chúng ta sẽ tạo một **Amazon S3 bucket** dùng để 
 3. **Block Public Access**: Đảm bảo bật **Block all public access** (theo mặc định).
 4. Kéo xuống dưới cùng, chọn **Create bucket**.
 
-![S3](/images/s3TC.jpg)
+![S3](images/s3TC.jpg)
 
 ---
 

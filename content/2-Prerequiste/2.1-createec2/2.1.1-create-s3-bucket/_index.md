@@ -17,7 +17,7 @@ In this step, we will create an **Amazon S3 bucket** to receive incoming data fi
 1. Navigate to the [Amazon S3 Console](https://s3.console.aws.amazon.com/s3/home).
 2. Click the **Create bucket** button.
 
-![S3](/images/taoS3.jpg)
+![S3](images/taoS3.jpg)
 
 ---
 
@@ -28,7 +28,7 @@ In this step, we will create an **Amazon S3 bucket** to receive incoming data fi
 3. **Block Public Access**: Ensure **Block all public access** is enabled (default setting).
 4. Scroll down and click **Create bucket**.
 
-![S3](/images/s3TC.jpg)
+![S3](images/s3TC.jpg)
 
 ---
 
