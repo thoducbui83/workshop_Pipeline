@@ -17,6 +17,4 @@ Trong bài lab này, bạn sẽ học các kiến thức cơ bản và thực h�
  1. [Giới thiệu](1-introduce/)
  2. [Các bước chuẩn bị](2-Prerequiste/)
  3. [Tạo kết nối đến máy chủ EC2](3-Accessibilitytoinstance/)
- 4. [Quản lý session logs](4-s3log/)
- 5. [Port Forwarding](5-Portfwd/)
- 6. [Dọn dẹp tài nguyên](6-cleanup/)
+ 4. [Dọn dẹp tài nguyên](4-cleanup/)

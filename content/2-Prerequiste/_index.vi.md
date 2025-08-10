@@ -7,17 +7,22 @@ pre : " <b> 2. </b> "
 ---
 
 {{% notice info %}}
-Bạn cần tạo sẵn 1 Linux instance thuộc public subnet và 1 Window instance thuộc private subnet để thực hiện bài thực hành này.
+Bạn cần tạo một Amazon S3 bucket để tiếp nhận file được người dùng tải lên, cấu hình một rule trên EventBridge để bắt sự kiện upload, kích hoạt một hàm AWS Lambda để xử lý file, và cuối cùng gửi thông báo qua Amazon SNS.
 {{% /notice %}}
 
-Để tìm hiểu cách tạo các EC2 instance và VPC với public/private subnet các bạn có thể tham khảo bài lab :
-  - [Giới thiệu về Amazon EC2](https://000004.awsstudygroup.com/vi/)
-  - [Làm việc với Amazon VPC](https://000003.awsstudygroup.com/vi/)
+Để tìm hiểu cách tạo các dịch vụ AWS cần thiết cho pipeline này, bạn có thể tham khảo tài liệu chính thức:
+  - [Amazon S3 – Lưu trữ đối tượng](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html)
+  - [Amazon EventBridge – Kiến trúc theo sự kiện](https://docs.aws.amazon.com/eventbridge/latest/userguide/what-is-amazon-eventbridge.html)
+  - [AWS Lambda – Tính toán không máy chủ](https://docs.aws.amazon.com/lambda/latest/dg/welcome.html)
+  - [Amazon SNS – Dịch vụ thông báo](https://docs.aws.amazon.com/sns/latest/dg/welcome.html)
 
-Để sử dụng System Manager để quản lý window instance nói riêng và các instance nói chung của chúng ta trên AWS, ta cần phải cung cấp quyền cho các instance của chúng ta có thể làm việc với System Manager.Trong phần chuẩn bị này, chúng ta cũng sẽ tiến hành tạo IAM Role để cấp quyền cho các instance có thể làm việc với System Manager.
+Để Lambda có thể xử lý sự kiện từ S3 thông qua EventBridge và gửi thông báo bằng SNS, bạn cần cấp đủ quyền cho Lambda thông qua IAM Role. Trong phần chuẩn bị này, bạn cũng sẽ tạo IAM Role cho phép Lambda:
+- Đọc dữ liệu từ S3
+- Gửi thông báo qua SNS
+- Ghi log vào CloudWatch
 
-### Nội dung
-  - [Chuẩn bị VPC và EC2 Instance](2.1-createec2/)
-  - [Tạo IAM Role](2.2-createiamrole/)
+### Nội dung thực hành
+  - [Chuẩn bị S3 bucket, rule EventBridge, Lambda function và SNS topic](2.1-createec2/)
+  - [Tạo IAM Role và cấp quyền cho Lambda](2.2-createiamrole/)
 
   
