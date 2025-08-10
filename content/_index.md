@@ -9,7 +9,7 @@ chapter : false
 ### Overall
 In this lab, you'll learn the basics and practice of building a serverless data processing pipeline using AWS Step Functions and Amazon EventBridge. You will orchestrate event-driven workflows, handle asynchronous processes, implement retry logic, and optimize serverless execution without managing any servers.
 
-![ConnectPrivate](images/arc-log.png) 
+![ConnectPrivate](/workshop_Pipeline/images/arc-log.png) 
 
 ### Content
  1. [Introduction ](1-introduce/)
