@@ -1,0 +1,106 @@
+[
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/2.1.1-create-s3-bucket/",
+	"title": "create-s3-bucket",
+	"tags": [],
+	"description": "",
+	"content": "Create S3 Bucket for Serverless Data Ingestion Pipeline In this step, we will create an Amazon S3 bucket to receive incoming data files. This bucket is the starting point of our serverless event-driven pipeline. When a file is uploaded, it will trigger an event in Amazon EventBridge, which then invokes a Lambda function to process the data.\n🪣 Step 1: Access Amazon S3 Console Navigate to the Amazon S3 Console. Click the Create bucket button. 📋 Step 2: Enter Bucket Details Bucket name: Enter a name such as fcj-upload-pipeline-demo. Region: Choose your preferred AWS Region, e.g., Asia Pacific (Singapore) ap-southeast-1. Block Public Access: Ensure Block all public access is enabled (default setting). Scroll down and click Create bucket. ✅ Result You have successfully created a bucket that acts as the input source for your serverless pipeline. Any file uploaded to this bucket will generate an S3 Event. In the next steps, we will configure EventBridge Rules to listen to S3 events and trigger AWS Lambda for data processing. "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/1-introduce/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": "Serverless Data Processing Pipeline with AWS Step Functions and EventBridge In the modern data-driven era, building scalable, flexible, and efficient data processing systems is essential. The Serverless Data Processing Pipeline architecture using AWS Step Functions and Amazon EventBridge enables orchestration of complex workflows without the need to manage any infrastructure. This event-driven approach ensures automation, modularity, and high reliability, while minimizing operational overhead.\nBy using Serverless Data Processing Pipeline with AWS Step Functions and EventBridge, you get the following advantages that traditional methods do not have:\nAutomated and traceable workflow orchestration with visual control via Step Functions.\nCost efficiency by using serverless architecture—pay only for what you use.\nHigh scalability, ideal for large-scale or real-time data processing.\nImproved reliability through built-in retry, error handling, and state tracking.\nSeamless integration with AWS services such as Lambda, S3, SNS, SQS, and DynamoDB.\nWith these advantages, you can use a Serverless Data Processing Pipeline with AWS Step Functions and EventBridge instead of traditional solutions that require managing infrastructure such as Bastion Hosts. The serverless architecture eliminates the need for operating intermediary servers, helping reduce costs, simplify security management, and save time in deploying and managing data processing workflows.\n"
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/",
+	"title": "Preparing AWS Environment for Serverless Pipeline",
+	"tags": [],
+	"description": "",
+	"content": "In this step, we will build a Serverless Data Ingestion and Processing Pipeline using core AWS services. This architecture enables automatic file processing without managing servers. The pipeline includes the following components:\nAmazon S3: Receives and stores uploaded files. Amazon EventBridge: Listens for object-created events from S3. AWS Lambda: Processes incoming events automatically. Amazon SNS: Sends real-time notifications to users or external systems. To learn how to implement each component of this serverless pipeline, you can refer to the official documentation:\nAmazon S3 – Introduction \u0026amp; Configuration Amazon EventBridge – Event Routing AWS Lambda – Serverless Processing Amazon SNS – Notification Service 💡 Note: Lambda requires appropriate IAM permissions to read from S3, send messages via SNS, and write logs to CloudWatch. Ensure you create a suitable IAM Role and attach it to your Lambda function.\nLab Content Create an S3 bucket to receive uploaded files Configure an EventBridge rule to trigger on “PUT Object” events from S3 Create a Lambda function to process the incoming events Create an SNS topic and configure notifications Create an IAM Role for Lambda (with S3, SNS, and CloudWatch access) "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/3-accessibilitytoinstances/3.1-receive-notification-via-gmail/",
+	"title": "Receive Notification via Gmail",
+	"tags": [],
+	"description": "",
+	"content": "Receive notifications via email (Gmail) when a file is uploaded to S3 After configuring an SNS topic to send notifications upon new file uploads to your S3 bucket, you will receive emails like the one below in your Primary inbox on Gmail.\n📧 Example emails received:\nS3 File Upload Notification: Notifies you that a new file (e.g., abc.csv) has been uploaded to the bucket s3-upload-notifier-store. SNS Subscription Confirmation: An email asking you to confirm your subscription to the SNS topic. 🖼️ Gmail interface:\nIf you do not receive the email, check the Promotions or Spam folders. Also make sure you have confirmed your subscription by clicking the link in the \u0026ldquo;Subscription Confirmation\u0026rdquo; email.\n"
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/",
+	"title": "Serverless Data Processing Pipeline with AWS Step Functions and EventBridge",
+	"tags": [],
+	"description": "",
+	"content": "Working with Serverless Data Processing Pipeline with AWS Step Functions and EventBridge Overall In this lab, you\u0026rsquo;ll learn the basics and practice of building a serverless data processing pipeline using AWS Step Functions and Amazon EventBridge. You will orchestrate event-driven workflows, handle asynchronous processes, implement retry logic, and optimize serverless execution without managing any servers.\nContent Introduction Preparation Connect to EC2 instance Clean up resources "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/2.1.2-create-eventbridge-rule/",
+	"title": "create-eventbridge-rule",
+	"tags": [],
+	"description": "",
+	"content": "Create EventBridge Rule for S3 Upload Trigger In this step, we will create an Amazon EventBridge Rule to detect when a new object is uploaded to the S3 bucket (e.g. fcj-upload-pipeline-demo). Once this rule is triggered, it will invoke the Lambda function to process the file.\n📌 Step 1: Open Amazon EventBridge Console Go to the Amazon EventBridge Console. In the left sidebar, select Rules. Click Create rule. 📝 Step 2: Enter Rule Details Name: s3-upload-trigger Description: Trigger Lambda when a file is uploaded to S3 Event bus: Leave it as default Click Next.\n🎯 Step 3: Define Event Pattern Select Event Source: AWS services AWS service: Simple Storage Service (S3) Event type: Object Created Specific event(s): PutObject (or leave default if unsure) (Optional) Bucket name filter: enter your bucket name, e.g. fcj-upload-pipeline-demo Click Next.\n⚙️ Step 4: Add Target Target type: AWS service Select a target: Lambda function Function: Select your function name (e.g. S3UploadEventHandler) (Optional) Add constant or input transformer, if needed. Click Next.\n✅ Step 5: Review and Create Review your rule configuration. Click Create rule to finish. 🎉 Result Now, your EventBridge Rule is ready.\nWhen a new file is uploaded to the S3 bucket fcj-upload-pipeline-demo, an event will be sent to EventBridge and automatically invoke the corresponding Lambda function to process the file.\n"
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/",
+	"title": "Preparation ",
+	"tags": [],
+	"description": "",
+	"content": "\rYou need to create an Amazon S3 bucket to receive uploaded files, configure an EventBridge rule to capture the upload event, trigger an AWS Lambda function to process the file, and finally publish a notification using Amazon SNS.\nTo learn how to create the required AWS services for this pipeline, you can refer to the official AWS documentation:\nAmazon S3 – Object Storage Amazon EventBridge – Event-Driven Architecture AWS Lambda – Serverless Function Compute Amazon SNS – Notification Service In order to allow your Lambda function to process S3 events via EventBridge and publish messages to SNS, you need to configure appropriate IAM permissions. In this preparation step, you will also create an IAM Role that grants Lambda permission to read from S3, send messages via SNS, and write logs to CloudWatch.\nContent Prepare S3 bucket, EventBridge rule, Lambda function and SNS topic Create IAM Role "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/3-accessibilitytoinstances/3.2-receive-notification-via-cloudwatch/",
+	"title": "Receive Notification via CloudWatch",
+	"tags": [],
+	"description": "",
+	"content": "Viewing Lambda Execution Logs in CloudWatch After a file is uploaded to the S3 bucket, the event triggers a Lambda function via EventBridge. The Lambda function then runs and logs its execution to Amazon CloudWatch Logs.\n👉 This allows you to verify whether the Lambda was triggered and executed correctly.\n🖼️ Example of log group in CloudWatch:\nThe log group is automatically created based on the Lambda function name:\n/aws/lambda/S3UploadEventHandler You can click on the log group to explore individual log streams and check: The file name received from S3 Whether the SNS message was successfully published Execution time and any possible errors If no logs appear, ensure the Lambda function has the correct permissions (AWSLambdaBasicExecutionRole) and has been properly triggered by the S3 event.\n"
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/3-accessibilitytoinstances/",
+	"title": "Connect to EC2 via Session Manager",
+	"tags": [],
+	"description": "",
+	"content": "Connect to EC2 Public and Private Instances In this section, we will connect to both public and private EC2 instances using AWS Systems Manager Session Manager, without opening SSH port 22.\nWe will demonstrate how to:\nConnect to a public instance using SSM. Connect to a private instance within a VPC using VPC Interface Endpoint. This approach improves security by avoiding SSH and limiting internet exposure.\n🧭 Steps Overview:\nThe public instance requires an IAM role and outbound access on port 443 to communicate with Session Manager. The private instance connects through a VPC endpoint for Systems Manager, eliminating the need for outbound internet access. Content [3.1 - Connect to EC2 Public Instance](./3.1-Receive Notification via Gmail/) [3.2 - Connect to EC2 Private Instance](./3.2-Receive Notification via CloudWatch/) "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/2.1.3-create-lambda-function/",
+	"title": "create-lambda-function",
+	"tags": [],
+	"description": "",
+	"content": "Create a Lambda Function to Handle S3 Upload Events In this step, we will create an AWS Lambda function that is triggered by S3 upload events (\u0026ldquo;ObjectCreated\u0026rdquo;), sent through Amazon EventBridge.\n📝 Step 1: Access the AWS Lambda Console Go to the AWS Lambda Console. Click Create function. ⚙️ Step 2: Configure the Lambda Function Select Author from scratch Function name: S3UploadEventHandler Runtime: Node.js 18.x (or latest available) Permissions: Choose Create a new role with basic Lambda permissions Later, update the role to include policies like: AmazonS3ReadOnlyAccess CloudWatchLogsFullAccess AmazonSNSFullAccess (if needed) Click Create function.\n🧠 Step 3: Add the Handler Code In the Function code section, replace the default code with the following:\nexports.handler = async (event) =\u0026gt; { console.log(\u0026#34;Event Received: \u0026#34;, JSON.stringify(event)); const record = event.Records?.[0]; const bucket = record?.s3?.bucket?.name; const key = record?.s3?.object?.key; console.log(`File uploaded: ${key} in bucket: ${bucket}`); // TODO: Add your logic here (e.g., validate file, send notification, store metadata) return { statusCode: 200, body: JSON.stringify({ message: \u0026#39;File processed successfully.\u0026#39; }) }; }; "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/2.1.4-create-sns-topic/",
+	"title": "create-sns-topic",
+	"tags": [],
+	"description": "",
+	"content": "Create an Amazon SNS Topic In this step, we will create an SNS Topic which will be used by the Lambda function to send notification messages whenever a file is uploaded to Amazon S3 and processed via EventBridge and Lambda.\n📝 Step 1: Access the SNS Management Console Go to the Amazon SNS Console. In the left menu, click Topics. Click Create topic. ⚙️ Step 2: Configure the SNS Topic Topic type: Standard Name: s3-upload-events-topic Leave all other settings default unless specified by your use case. Click Create topic. 📥 Step 3: Create a Subscription (Optional, for testing) In the topic details page, scroll down to Subscriptions. Click Create subscription. Protocol: Email Endpoint: Enter your email address to receive notifications (e.g., example@gmail.com) Click Create subscription. You’ll receive a confirmation email. Click the confirmation link to activate the subscription.\n🔄 Step 4: Grant SNS Publish Permissions to Lambda Function To allow your Lambda function to publish messages to SNS, ensure it has the following permission:\nGo to IAM \u0026gt; Roles Locate the execution role used by your Lambda function Attach policy: AmazonSNSFullAccess (For production, you should create a custom policy with limited SNS topic access)\n✅ Final Outcome You now have an SNS topic s3-upload-events-topic that can be used to notify users or systems when a file is uploaded to S3. This will be invoked from your Lambda function, forming the final notification layer in your event-driven pipeline. "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/2-prerequiste/2.1-createec2/2.1.5-create-iam-role/",
+	"title": "create-iam-role",
+	"tags": [],
+	"description": "",
+	"content": "Create IAM Role for Lambda and Services Integration In a serverless data ingestion and processing pipeline, services such as Amazon S3, Lambda, and EventBridge need appropriate permissions to access resources, send/receive events, and process data. This step walks you through creating an IAM Role that allows Lambda to interact securely with other AWS services.\n🛠️ Step 1: Access IAM Console Go to the IAM Management Console. In the left sidebar, select Roles. Click Create role. 📥 Step 2: Select Trusted Entity Type On the Select trusted entity type page: Choose AWS service. Choose Lambda (or the service you want to assign this role to). Click Next. 🔐 Step 3: Attach Permissions Policies Search and attach the following AWS managed policies: AmazonS3FullAccess AmazonSNSFullAccess CloudWatchLogsFullAccess AmazonEventBridgeFullAccess 💡 In a real-world deployment, it\u0026rsquo;s recommended to use custom policies with least-privilege access specific to your resources.\nClick Next. 📝 Step 4: Name and Describe the IAM Role Under Role name, enter: lambda-pipeline-role Description: Role that allows Lambda to access S3, SNS, EventBridge, and CloudWatch Click Create role to finish. ✅ Final Result The lambda-pipeline-role is now ready to be attached to the main Lambda function in your pipeline. This role enables Lambda to: Retrieve files from S3 Publish events to SNS Write logs to CloudWatch React to rules from EventBridge "
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/4-cleanup/",
+	"title": "Clean up resources",
+	"tags": [],
+	"description": "",
+	"content": "We will now clean up all the AWS resources that were provisioned as part of the Serverless Data Ingestion \u0026amp; Processing Pipeline project.\n🗑️ Delete Lambda Function Go to AWS Lambda Console Select the Lambda function created for this project (e.g., event-processing-function). Click Actions → Delete. Confirm deletion by typing the function name. 🗑️ Delete EventBridge Rule Go to Amazon EventBridge Console Click Rules on the left panel. Select the rule created for S3 trigger (e.g., S3UploadEventRule). Click Actions → Delete → Confirm. 🗑️ Delete SNS Topic Go to Amazon SNS Console Select the SNS Topic used to publish processed events. Click Actions → Delete topic → Confirm deletion. 🗑️ Delete IAM Role Go to IAM Management Console Click Roles. Search for lambda-pipeline-role. Click the role name. Click Delete, then type the role name to confirm. 🗑️ Empty and Delete S3 Bucket Go to Amazon S3 Console Click on the bucket you created (e.g., fcj-serverless-pipeline-bucket). Go to Empty bucket, enter permanently delete, and click Empty to clear all objects. Then click Delete bucket. Confirm by typing the bucket name → Click Delete. ✅ Optional: Delete CloudWatch Log Groups Go to CloudWatch Console Click Log groups in the left panel. Locate the log groups for your Lambda function. Select the log group(s) → Click Actions → Delete log group → Confirm. ✅ Summary At this point, you have:\nDeleted all serverless components (Lambda, EventBridge rule, SNS, IAM Role, S3 Bucket). Removed residual logs to save cost. Cleaned up the environment to prevent unintended charges. 🧼 Performing clean-up is good practice to avoid incurring extra cost and keeping your AWS account organized.\n"
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://thoducbui83.github.io/workshop_Pipeline/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]
