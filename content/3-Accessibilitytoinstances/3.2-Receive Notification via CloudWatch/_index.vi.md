@@ -14,12 +14,12 @@ Sau khi file được upload lên S3, sự kiện sẽ kích hoạt Lambda funct
 
 🖼️ **Ví dụ log hiển thị trong CloudWatch:**
 
-![CloudWatchLogGroup](images/upload1.jpg)
+![CloudWatchLogGroup](/workshop_Pipeline/images/upload1.jpg)
 
-![CloudWatchLogGroup](images/uploadTC.jpg)
+![CloudWatchLogGroup](/workshop_Pipeline/images/uploadTC.jpg)
 
 
-![CloudWatchLogGroup](images/cloudwhat1.jpg)
+![CloudWatchLogGroup](/workshop_Pipeline/images/cloudwhat1.jpg)
 
 - Log group được tạo tự động theo tên hàm Lambda:  
   `/aws/lambda/S3UploadEventHandler`

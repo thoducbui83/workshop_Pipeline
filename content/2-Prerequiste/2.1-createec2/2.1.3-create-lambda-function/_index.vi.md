@@ -30,7 +30,7 @@ Trong bước này, chúng ta sẽ tạo một **Lambda function** nhằm xử l
 
 Nhấn **Create function**.
 
-![Lambda Create](images/lamda1.jpg)
+![Lambda Create](/workshop_Pipeline/images/lamda1.jpg)
 
 ---
 
@@ -55,3 +55,5 @@ exports.handler = async (event) => {
         body: JSON.stringify({ message: 'File processed successfully.' })
     };
 };
+
+```

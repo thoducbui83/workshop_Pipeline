@@ -49,7 +49,7 @@ In a serverless data ingestion and processing pipeline, services such as Amazon 
 2. Description: `Role that allows Lambda to access S3, SNS, EventBridge, and CloudWatch`
 3. Click **Create role** to finish.
 
-![IAM Role](images/iam.jpg)
+![IAM Role](/workshop_Pipeline/images/iam.jpg)
 
 ---
 
@@ -62,8 +62,8 @@ In a serverless data ingestion and processing pipeline, services such as Amazon 
    + Write logs to CloudWatch
    + React to rules from EventBridge
 
-![IAM Role](images/iam1.jpg)
+![IAM Role](/workshop_Pipeline/images/iam1.jpg)
 
-![IAM Role](images/iam2.jpg)
+![IAM Role](/workshop_Pipeline/images/iam2.jpg)
 ---
 

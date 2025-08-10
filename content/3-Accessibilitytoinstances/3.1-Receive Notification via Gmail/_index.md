@@ -17,9 +17,9 @@ After configuring an SNS topic to send notifications upon new file uploads to yo
 
 🖼️ **Gmail interface:**
 
-![SNS Gmail Notification](images/Picture2.png)
+![SNS Gmail Notification](/workshop_Pipeline/images/Picture2.png)
 
-![SNS Gmail Notification](images/gmal.jpg)
+![SNS Gmail Notification](/workshop_Pipeline/images/gmal.jpg)
 
 
 {{% notice note %}}

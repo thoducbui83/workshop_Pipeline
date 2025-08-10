@@ -1,76 +1,58 @@
 ---
 title : "create-eventbridge-rule"
 date: 2025-07-02
-weight : 2
+weight : 1
 chapter : false
 pre : " <b> 2.1.2 </b> "
 ---
 
-#### Create EventBridge Rule for S3 Upload Trigger
+## Create EventBridge Rule for S3 Events
 
-In this step, we will create an **Amazon EventBridge Rule** to detect when a new object is uploaded to the S3 bucket (e.g. `fcj-upload-pipeline-demo`). Once this rule is triggered, it will invoke the Lambda function to process the file.
+In this step, you will create an Amazon EventBridge rule that listens for S3 object creation events and triggers your Lambda function when files are uploaded to your S3 bucket.
 
----
+### Step 1: Access Amazon EventBridge Console
 
-### 📌 Step 1: Open Amazon EventBridge Console
-
-1. Go to the [Amazon EventBridge Console](https://console.aws.amazon.com/events/home).
-2. In the left sidebar, select **Rules**.
+1. Navigate to the [Amazon EventBridge Console](https://console.aws.amazon.com/events/).
+2. Click **Rules** in the left sidebar.
 3. Click **Create rule**.
 
-![EventBridge](images/taoRuler.jpg)
+![EventBridge](/workshop_Pipeline/images/taoRuler.jpg)
 
----
+### Step 2: Configure Rule Details
 
-### 📝 Step 2: Enter Rule Details
+1. **Name**: Enter a descriptive name like `s3-upload-trigger`.
+2. **Description**: "Rule to trigger Lambda when files are uploaded to S3".
+3. **Event bus**: Select **default**.
+4. **Rule type**: Select **Rule with an event pattern**.
 
-1. **Name**: `s3-upload-trigger`
-2. **Description**: Trigger Lambda when a file is uploaded to S3
-3. **Event bus**: Leave it as **default**
+### Step 3: Define Event Pattern
 
-Click **Next**.
+1. **Event source**: Select **AWS services**.
+2. **AWS service**: Select **Simple Storage Service (S3)**.
+3. **Event type**: Select **Object Level Operations**.
+4. **Specific event(s)**: Select **Object Created**.
+5. **Specific operation(s)**: Select **Put**, **Post**, **Copy**, **CompleteMultipartUpload**.
 
----
+![Event Pattern](/workshop_Pipeline/images/ruler2.jpg)
 
-### 🎯 Step 3: Define Event Pattern
+### Step 4: Configure Target
 
-1. Select **Event Source**: **AWS services**
-2. **AWS service**: `Simple Storage Service (S3)`
-3. **Event type**: `Object Created`
-4. **Specific event(s)**: `PutObject` (or leave default if unsure)
-5. (Optional) **Bucket name filter**: enter your bucket name, e.g. `fcj-upload-pipeline-demo`
+1. **Target types**: Select **AWS service**.
+2. **Target**: Select **Lambda function**.
+3. **Function**: Select your Lambda function from the dropdown.
+4. Click **Add target**.
 
-Click **Next**.
+![Add Target](/workshop_Pipeline/images/ruler3.jpg)
 
-![Event Pattern](images/ruler2.jpg)
+### Step 5: Create Rule
 
----
+1. Review your configuration.
+2. Click **Create rule**.
 
-### ⚙️ Step 4: Add Target
+![Success](/workshop_Pipeline/images/ruler1.jpg)
 
-1. **Target type**: AWS service
-2. **Select a target**: `Lambda function`
-3. **Function**: Select your function name (e.g. `S3UploadEventHandler`)
-4. (Optional) Add constant or input transformer, if needed.
+### Result
 
-Click **Next**.
-
-![Add Target](images/ruler3.jpg)
-
----
-
-### ✅ Step 5: Review and Create
-
-1. Review your rule configuration.
-2. Click **Create rule** to finish.
-
-![Success](images/ruler1.jpg)
-
----
-
-### 🎉 Result
-
-Now, your **EventBridge Rule** is ready.  
-When a new file is uploaded to the S3 bucket `fcj-upload-pipeline-demo`, an event will be sent to EventBridge and automatically invoke the corresponding **Lambda function** to process the file.
-
----
+- ✅ Your EventBridge rule is now configured to listen for S3 upload events.
+- ✅ When a file is uploaded to your S3 bucket, EventBridge will automatically trigger your Lambda function.
+- ✅ The serverless pipeline is now event-driven and will process data automatically.

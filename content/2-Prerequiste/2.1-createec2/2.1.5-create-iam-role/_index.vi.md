@@ -49,7 +49,7 @@ Trong pipeline xử lý serverless, các dịch vụ như Amazon S3, Lambda và 
 2. Mô tả: `Role cho phép Lambda truy cập S3, SNS, EventBridge và CloudWatch`
 3. Nhấn **Create role** để hoàn tất.
 
-![IAM Role](images/iam.jpg)
+![IAM Role](/workshop_Pipeline/images/iam.jpg)
 
 ---
 
@@ -62,8 +62,8 @@ Trong pipeline xử lý serverless, các dịch vụ như Amazon S3, Lambda và 
    + Ghi log vào CloudWatch
    + Xử lý theo rule từ EventBridge
 
-![IAM Role](images/iam1.jpg)
+![IAM Role](/workshop_Pipeline/images/iam1.jpg)
 
-![IAM Role](images/iam2.jpg)
+![IAM Role](/workshop_Pipeline/images/iam2.jpg)
 ---
 

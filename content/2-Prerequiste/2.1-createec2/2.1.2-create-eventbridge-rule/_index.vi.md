@@ -1,76 +1,58 @@
 ---
-title : "tao-eventbridge-rule"
+title : "create-eventbridge-rule"
 date: 2025-07-02
-weight : 2
+weight : 1
 chapter : false
 pre : " <b> 2.1.2 </b> "
 ---
 
-#### Tạo Rule EventBridge để kích hoạt Lambda khi có file mới trên S3
+## Tạo EventBridge Rule cho S3 Events
 
-Trong bước này, chúng ta sẽ tạo một **EventBridge Rule** để theo dõi sự kiện khi một file mới được tải lên bucket S3 (ví dụ: `fcj-upload-pipeline-demo`). Khi sự kiện này xảy ra, rule sẽ tự động kích hoạt Lambda function để xử lý file đó.
+Trong bước này, bạn sẽ tạo một Amazon EventBridge rule để lắng nghe các sự kiện tạo object S3 và kích hoạt Lambda function khi có file được upload vào S3 bucket.
 
----
+### Bước 1: Truy cập Amazon EventBridge Console
 
-### 📌 Bước 1: Mở giao diện quản lý EventBridge
+1. Điều hướng đến [Amazon EventBridge Console](https://console.aws.amazon.com/events/).
+2. Click **Rules** trong sidebar bên trái.
+3. Click **Create rule**.
 
-1. Truy cập [Amazon EventBridge Console](https://console.aws.amazon.com/events/home).
-2. Ở thanh điều hướng bên trái, chọn **Rules**.
-3. Nhấn nút **Create rule** để tạo mới.
+![EventBridge](/workshop_Pipeline/images/taoRuler.jpg)
 
-![EventBridge](images/taoRuler.jpg)
+### Bước 2: Cấu hình Rule Details
 
----
+1. **Name**: Nhập tên mô tả như `s3-upload-trigger`.
+2. **Description**: "Rule để kích hoạt Lambda khi có file upload lên S3".
+3. **Event bus**: Chọn **default**.
+4. **Rule type**: Chọn **Rule with an event pattern**.
 
-### 📝 Bước 2: Nhập thông tin Rule
+### Bước 3: Định nghĩa Event Pattern
 
-1. **Tên Rule**: `s3-upload-trigger`
-2. **Mô tả**: Tự động kích hoạt Lambda khi có file mới tải lên S3
-3. **Event bus**: Giữ mặc định là **default**
+1. **Event source**: Chọn **AWS services**.
+2. **AWS service**: Chọn **Simple Storage Service (S3)**.
+3. **Event type**: Chọn **Object Level Operations**.
+4. **Specific event(s)**: Chọn **Object Created**.
+5. **Specific operation(s)**: Chọn **Put**, **Post**, **Copy**, **CompleteMultipartUpload**.
 
-Nhấn **Next** để tiếp tục.
+![Event Pattern](/workshop_Pipeline/images/ruler2.jpg)
 
----
+### Bước 4: Cấu hình Target
 
-### 🎯 Bước 3: Định nghĩa điều kiện sự kiện (Event Pattern)
+1. **Target types**: Chọn **AWS service**.
+2. **Target**: Chọn **Lambda function**.
+3. **Function**: Chọn Lambda function của bạn từ dropdown.
+4. Click **Add target**.
 
-1. **Nguồn sự kiện (Event Source)**: chọn **AWS services**
-2. **Dịch vụ AWS**: `Simple Storage Service (S3)`
-3. **Loại sự kiện (Event type)**: `Object Created`
-4. **Sự kiện cụ thể**: `PutObject` (hoặc để mặc định nếu không chắc)
-5. (Tuỳ chọn) **Lọc theo tên bucket**: nhập tên bucket của bạn, ví dụ: `fcj-upload-pipeline-demo`
+![Add Target](/workshop_Pipeline/images/ruler3.jpg)
 
-Nhấn **Next**.
+### Bước 5: Tạo Rule
 
-![Event Pattern](images/ruler2.jpg)
+1. Xem lại cấu hình.
+2. Click **Create rule**.
 
----
+![Success](/workshop_Pipeline/images/ruler1.jpg)
 
-### ⚙️ Bước 4: Thêm đích (Target)
+### Kết quả
 
-1. **Loại đích (Target type)**: Dịch vụ AWS
-2. **Chọn đích**: `Lambda function`
-3. **Hàm Lambda**: Chọn tên hàm xử lý, ví dụ: `S3UploadEventHandler`
-4. (Tuỳ chọn) Có thể thêm input transformer nếu cần.
-
-Nhấn **Next**.
-
-![Add Target](images/ruler3.jpg)
-
----
-
-### ✅ Bước 5: Xác nhận và tạo rule
-
-1. Kiểm tra lại toàn bộ cấu hình của rule.
-2. Nhấn **Create rule** để hoàn tất.
-
-![Success](images/ruler1.jpg)
-
----
-
-### 🎉 Kết quả
-
-Bạn đã tạo thành công một **EventBridge Rule**.  
-Mỗi khi có một file mới được tải lên bucket `fcj-upload-pipeline-demo`, sự kiện sẽ được gửi tới EventBridge và tự động kích hoạt **Lambda function** để xử lý.
-
----
+- ✅ EventBridge rule của bạn đã được cấu hình để lắng nghe S3 upload events.
+- ✅ Khi có file được upload vào S3 bucket, EventBridge sẽ tự động kích hoạt Lambda function.
+- ✅ Pipeline serverless giờ đây đã dựa trên sự kiện và sẽ xử lý dữ liệu tự động.
